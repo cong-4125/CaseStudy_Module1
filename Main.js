@@ -48,14 +48,16 @@ const cardArray = [
         img: 'images/Pokemon.jpg'
     }
 ]
-cardArray.sort(function(a, b){return 0.5 - Math.random()});
+cardArray.sort(function (a, b) {
+    return 0.5 - Math.random()
+});
 let time = 20;
 let success = false;
 setInterval(function () {
     if (time > 0 && success == false) {
         time -= 1;
         document.getElementById('time').innerText = "Thời gian còn lại    :" + time;
-        document.getElementById("score").innerHTML = " score :" + time*5 ;
+        document.getElementById("score").innerHTML = " score :" + time * 5;
         if (time == 0 && success == false) {
             // confirm('fail');
             if (confirm("Ban co muon choi lai ko")) {
@@ -64,13 +66,10 @@ setInterval(function () {
         }
     }
 }, 1000)
-
-
 const grid = document.getElementsByClassName('grid')[0];
 let cardsChosen = [];
 let cardsChosenId = [];
 
-//tao bang game
 function createBoard() {
     let html = '';
     for (let i = 0; i < cardArray.length; i++) {
@@ -108,7 +107,7 @@ function checkForMatch() {
     let content = document.getElementsByClassName('grid')[0].innerHTML;
     if (content == '') { //kiem tra dieu kien win
         success = true;
-        document.getElementById('result').innerHTML = 'You win ! ' + "score :" + time*5;
+        document.getElementById('result').innerHTML = 'You win ! ' + "score :" + time * 5;
         //tao button choi lai
     }
 }
