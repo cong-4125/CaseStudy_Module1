@@ -48,14 +48,14 @@ const cardArray = [
         img: 'images/Pokemon.jpg'
     }
 ]
-cardArray.sort(() => 0.5 - Math.random());
-let time = 30;
+cardArray.sort(function(a, b){return 0.5 - Math.random()});
+let time = 20;
 let success = false;
 setInterval(function () {
     if (time > 0 && success == false) {
         time -= 1;
         document.getElementById('time').innerText = "Thời gian còn lại    :" + time;
-        document.getElementById("score").innerHTML = time ;
+        document.getElementById("score").innerHTML = " score :" + time*5 ;
         if (time == 0 && success == false) {
             // confirm('fail');
             if (confirm("Ban co muon choi lai ko")) {
@@ -108,7 +108,7 @@ function checkForMatch() {
     let content = document.getElementsByClassName('grid')[0].innerHTML;
     if (content == '') { //kiem tra dieu kien win
         success = true;
-        document.getElementById('result').innerHTML = 'chúc mừng bạn đã qua lever  !'
+        document.getElementById('result').innerHTML = 'You win ! ' + "score :" + time*5;
         //tao button choi lai
     }
 }
